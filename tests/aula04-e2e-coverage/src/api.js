@@ -1,11 +1,10 @@
 const http = require('http')
+const { once } = require('events')
 
 const DEFAULT_USER = {
   username: 'vagnerf',
   passwd: '123'
 }
-
-const { once } = require('events')
 
 const routes = {
   '/contact:get': (req, res) => {
@@ -13,9 +12,17 @@ const routes = {
     return res.end()
   },
   '/login:post': async (req, res) => {
-    const data = await once(req, "data")
-    console.log('data ', data)
-    return res.end()
+    const data = JSON.parse(await once(req, "data"))
+    const toLowerCase = (string) => string.toLowerCase()
+    if (
+      toLowerCase(data.username) !== toLowerCase(DEFAULT_USER.username) ||
+      data.passwd !== DEFAULT_USER.passwd
+    ) {
+      res.writeHead(401)
+      res.end("Bad Credentials")
+      return;
+    }
+    return res.end("ok")
   },
   default(req, res) {
     res.writeHead(404)
@@ -32,3 +39,7 @@ function handler(req, res) {
 
 const app = http.createServer(handler)
 .listen(3000, () => console.log('running at 3000'))
+
+// curl -X POST --data '{"username": "vagneRf", "passwd": "123"}' localhost:3000/login
+
+module.exports = app
