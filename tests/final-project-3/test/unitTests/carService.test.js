@@ -13,7 +13,7 @@ const mocks = {
   validCustomer: require('../mocks/valid-customer.json')
 }
 
-describe('CarSerice Suite Tests', () => {
+describe('CarService Suite Tests', () => {
   let carService = {}
   let sandbox = {}
   before(() => {

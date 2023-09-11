@@ -8,8 +8,8 @@ class BaseRepository {
   async find(itemId) {
     const content = JSON.parse(await readFile(this.file))
 
+    console.log('itemId', itemId)
     if (!itemId) return content
-
     return content.find(({ id }) => id === itemId)
   }
 }

@@ -1,1 +1,8 @@
-[{"id":"bf4c10ec-3836-4fc1-935b-3868f9faf5e6","name":"Passenger Van","carIds":["8057a017-0eaf-408d-a687-74a3204560c2","e036ef4b-5f10-4bd7-83df-323717fe89b3","dc8af18d-edfa-46ec-9add-b440308be236"],"price":80.44}]
+[
+  {
+    "id": "bf4c10ec-3836-4fc1-935b-3868f9faf5e6",
+    "name": "Passenger Van",
+    "carIds": ["8057a017-0eaf-408d-a687-74a3204560c2","e036ef4b-5f10-4bd7-83df-323717fe89b3","dc8af18d-edfa-46ec-9add-b440308be236"],
+    "price": 80.44
+  }
+]
